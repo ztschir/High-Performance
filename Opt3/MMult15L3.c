@@ -31,36 +31,45 @@ void MY_MMult( int m, int n, int k, double *a, int lda,
 //for ( i=0; i<m; i+=mc ){
 //   ib = min( m-i, mc );
 
-  for ( p=0; p<k; p+=kc ){
-    pb = min( k-p, kc );
+  //for ( p=0; p<k; p+=kc ){
+    //pb = min( k-p, kc );
     //
-    double packedB[ kc*nb*m ];
+    //double packedB[ kc*nb*m ];
     //
-    #pragma omp parallel for num_threads(4) private(ib)
-    for ( i=0; i<m; i+=mc ){
-      ib = min( m-i, mc );
-      //
-      PackMatrixB( pb, &B( 0, 0 ), ldb, &packedB[ pb ] );
-      //
-      InnerKernel( ib, n, pb, &A( i,p ), lda, &B(p, 0 ), ldb, &C( i,0 ), ldc, &packedB[pb]);
+    //    #pragma omp parallel for num_threads(4) private(ib)
+    //    for ( i=0; i<m; i+=mc ){
+    //  ib = min( m-i, mc );
+      //PackMatrixB( pb, &B( 0, 0 ), ldb, &packedB[ pb ] );
+    //  InnerKernel( ib, n, pb, &A( i,p ), lda, &B(p, 0 ), ldb, &C( i,0 ), ldc, &packedB[pb]);
+  // }
+  //}
+
+    for ( p=0; p<k; p+=kc ){
+        pb = min( k-p, kc );
+        for ( i=0; i<m; i+=mc ){
+            ib = min( m-i, mc );
+            InnerKernel( ib, n, pb, &A( i,p ), lda, &B(p, 0 ), ldb, &C( i,0 ), ldc );
+        }
     }
-  }
+}
+
+
 }
 
 void InnerKernel( int m, int n, int k, double *a, int lda, 
                                        double *b, int ldb,
-                                       double *c, int ldc,  double *b_to)
+		  double *c, int ldc,  int first_time)//double *b_to)
 {
   int i, j;
   double 
     packedA[ m * k ];
-  //static double 
-    //packedB[ kc*nb ];    /* Note: using a static buffer is not thread safe... */
+  static double 
+    packedB[ kc*nb ];    /* Note: using a static buffer is not thread safe... */
 
 for ( i=0; i<m; i+=4 )
     PackMatrixA( k, &A( i, 0 ), lda, &packedA[ i*k ] );
 
-  //#pragma omp parallel for num_threads(4) private(i)
+  #pragma omp parallel for num_threads(4) private(i)
   for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C, unrolled by 4 */
   //  {
     //if ( first_time )
