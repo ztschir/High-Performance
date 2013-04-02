@@ -1,0 +1,3 @@
+setenv MPIHOME /p/share/src/mpi
+setenv PATH /p/share/src/mpi/bin:$PATH
+

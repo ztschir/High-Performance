@@ -1,0 +1,161 @@
+\documentclass[10pt]{article}
+
+\usepackage{psfig}
+\usepackage{moreverb}
+\usepackage{latexsym}
+\usepackage{rotating}
+\usepackage{makeidx}  % allows for indexgeneration
+
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\topmargin}{-0.75in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{note}{Note}
+\newtheorem{algorithm}{Algorithm}
+
+% \newcommand{\PPre}{P_{\rm pre}}
+% \newcommand{\PPost}{P_{\rm post}}
+% \newcommand{\PInv}{P_{\rm inv}}
+
+\newenvironment{indent0}%
+%  {\begin{list}{\  \hspace{.0in} }{}}%
+%  {\end{list}}
+  { \begin{description} }
+  { \end{description} }
+
+\newenvironment{steps}
+{ \begin{list}{\bf Step ??:}{}}
+{ \end{list} }
+
+\newenvironment{indent1}%
+  {\begin{list}{\  \hspace{.05in} }{}}%
+  {\end{list}}
+
+\newenvironment{indent2}%
+  {\begin{list}{\  \hspace{.1in} }{}}%
+  {\end{list}}
+
+\newenvironment{indent3}%
+  {\begin{list}{\  \hspace{.15in} }{}}%
+  {\end{list}}
+
+\newcommand{\undefined}{\star}
+
+\title{
+Assignment: Implementing the Reduce operation
+}
+            
+\author{
+Robert A. van de Geijn
+}
+
+\date{
+}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item
+On the CS machines, copy the contents of {\tt ~rvdg/class/CS378S13/mpi/sum\_to\_one}
+to your directory.  
+\begin{quote}
+({\tt cp -r ~rvdg/class/CS378S13/mpi/sum\_to\_one <directory name>})
+\end{quote}
+\item
+Change to that directory.
+\item
+Modify the file ``hostfile'' so that the machine that you are on is listed instad of {\tt diligence.cs.utexas.edu}.  What this will do is create multiple MPI processes, but they will all run on the same machine.  As a result, you will be simulating a distributed memory parallel computer on a single CPU.
+\item
+Type ``source setup'' or ``source setup\_bash''.  This initializes
+some environment variables for MPI.
+\item
+Type ``make run'' //
+This will compile the code and run it on 5 machines as a parallel computer.
+\item
+What does this code do?
+\begin{enumerate}
+\item
+It tests the routine {\tt my\_sum\_to\_one} in file {\tt my\_sum\_to\_one.c}.
+\item
+It does so by using the Message-Passing Interface.  To learn more
+about MPI, visit
+{\tt http://www-unix.mcs.anl.gov/mpi/}.
+\item
+Let the processors be indexed $ 0, 1, 2, ... $.
+Then on processor $ i $, the input vector is
+\[
+\left( \begin{array}{c}
+0 + i * 10^{-(i+1)} \\
+1 + i * 10^{-(i+1)} \\
+\vdots \\
+9 + i * 10^{-(i+1)}
+\end{array}
+\right)
+\]
+In other words, the input vectors are given by
+\[
+\left( \begin{array}{r}
+0.0000 \\
+1.0000 \\
+\vdots
+9.0000
+\end{array}
+\right), \quad
+%
+\left( \begin{array}{r}
+0.0100 \\
+1.0100 \\
+\vdots
+9.0100
+\end{array}
+\right),  \quad
+%
+\left( \begin{array}{r}
+0.0020 \\
+1.0020 \\
+\vdots
+9.0020
+\end{array}
+\right),  \quad
+\mbox{etc.}
+\]
+on processors $ 0, 1, 2, \ldots $.
+\item
+The output is the sum of these vectors, gather to the root (in this
+case processor 0):
+\[
+\left( \begin{array}{c}
+0.01234 \\
+5.01234 \\
+\vdots \\
+45.01234
+\end{array}
+\right)
+\]
+\end{enumerate}
+\item
+Notice that in the file {\tt my\_sum\_to\_one.c} I have merely
+implemented the parallel summation of these vectors by a call
+to the MPI library routine {\tt MPI\_Reduce}.
+\item
+Your job is to reimplement this using a minimum-spanning-tree
+(MST) algorithm, as discussed in class.
+\item
+Hint: in {\tt my\_bcast.c} you will find a recursively implemented
+MST broadcast, which you should be able to modify to come up
+with a MST reduce.
+\end{enumerate}
+\end{document}
+

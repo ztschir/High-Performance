@@ -28,12 +28,9 @@ void MY_MMult( int m, int n, int k, double *a, int lda,
 
   /* This time, we compute a mc x n block of C by a call to the InnerKernel */
 
-//for ( i=0; i<m; i+=mc ){
-//   ib = min( m-i, mc );
 
   for ( p=0; p<k; p+=kc ){
     pb = min( k-p, kc );
-    #pragma omp parallel for num_threads(4) private(i,ib)
     for ( i=0; i<m; i+=mc ){
       ib = min( m-i, mc );
       InnerKernel( ib, n, pb, &A( i,p ), lda, &B(p, 0 ), ldb, &C( i,0 ), ldc, i==0 );
@@ -54,7 +51,7 @@ void InnerKernel( int m, int n, int k, double *a, int lda,
 for ( i=0; i<m; i+=4 )
     PackMatrixA( k, &A( i, 0 ), lda, &packedA[ i*k ] );
 
-  //#pragma omp parallel for num_threads(4) private(i)
+ #pragma omp parallel for num_threads(4) private(i)
   for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C, unrolled by 4 */
     {
     if ( first_time )

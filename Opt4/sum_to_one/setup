@@ -1,0 +1,3 @@
+setenv MPIHOME /lusr/mpich/lib
+setenv PATH /lusr/mpich/bin:$PATH
+

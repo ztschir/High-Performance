@@ -1,0 +1,92 @@
+Some initial instructions:
+
+If you lost the instructions, look in description.ps or
+description.pdf in this file.  
+
+Notice that sum_to_one.c is the test routine that checks the result.
+DO NOT CHANGE IT!
+
+I suggest the following steps:
+
+1) copy my_sum_to_one.c to a backup file, say my_sum_to_one_old.c
+
+2) copy my_bcast.c to my_sum_to_one.c
+   after all, the sum_to_one is supposed to be the bcast in reverse,
+   in some sense.
+
+3) Change the name ..._bcast_... to _sum_to_one_... everywhere.
+
+4) Notice that the calling sequence for my_sum_to_one and bcast are slightly
+   different:
+
+   
+   int my_sum_to_one( void * send_buf, void * recv_buf, int count, 
+	              int root, MPI_Comm comm)
+
+   void my_bcast( void *buffer, int count, MPI_Datatype datatype,
+	          int root, MPI_Comm comm )
+
+In the my_sum_to_one:
+
+There are two input buffers: send_buf is the address of where THIS
+node's vector of data exists.  recv_buf is the address of where the
+result is to exist on the root node.  We will assume that on all nodes
+both buffers (send_buf and recv_buf) may be corrupted with intermediate
+results, as long as the recv_buf on the root node has the final result.
+
+Also note that "datatype" is not passed to my_sum_to_one.  We assume that 
+we are summing items of type MPI_DOUBLE.  So, everywhere in the code where
+datatype is specified (in the MPI_Send and MPI_Recv), change this to
+MPI_DOUBLE.
+
+Don't forget to change the calling sequence of my_sum_to_one_util as well
+and in the call to my_sum_to_one_util found in my_sum_to_one.
+
+(Of course this assumes that you have changed bcast->sum_to_one already as
+described earlier.)
+
+5) Next, notice that for the bcast, you partition the network (this is
+done by computing "mid" and "dest", you send from cur_root to dest, and
+you then call recursively for broadcasts in the left and right subnetworks.
+
+For the sum_to_one, you want to partition the network the same way (this
+means the computation of "mid" and "dest" doesnt' change), but you want
+all vectors in each of the two subnetworks to be added together, leaving
+the results on cur_root and dest, respectively.  This means that you 
+do recursive calls exactly as they are now, but you do so before the 
+MPI_Send and MPI_Recv calls.
+
+6) Notice that you now want to send from the dest to the cur_root, so
+you need to swap the MPI_Send and MPI_Recv calls.  I would suggest
+recieveing into recv_buf and sending from the send_buf.  
+Don't forget to change the destination in the MPI_Send call and the
+source in the MPI_Recv call!!!  (Hmmm, perhaps it is time to rename
+variable "dest" to "source"?)
+
+7) Now, you are doing all the communication right, but the data when
+it arrives is not being added to anything.  I suggest a loop like
+  for (i=0; i<count; i++ )
+    ( ( double * ) send_buf )[ i ] += ( ( double * ) recv_buf )[ i ];
+
+for this.
+
+8) Now, everything should run, but you are getting the wrong answer.
+
+Notice that what you do in 7) accumulates the result in the buffer at
+address send_buf.  We want the result to be in the buffer at address
+recv_buf.  Thus, in the interface routine my_sum_to_one you want to
+move the data from send_buf to recv_buf IF THIS NODE IS THE ROOT:
+
+Place 
+  if ( me == root )
+    for (i=0; i<count; i++ )
+      ( ( double * ) recv_buf )[ i ] = ( ( double * ) send_buf )[ i ];
+  
+
+DON"T FORGET TO EXTRACT me FROM THE COMMUNICATOR (see the call in
+my_sum_to_one_util and copy to my_sum_to_one.)
+
+BINGO, it should all work!
+
+Robert
+

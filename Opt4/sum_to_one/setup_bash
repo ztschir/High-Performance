@@ -1,0 +1,2 @@
+export MPIHOME=/lusr/mpich/lib
+export PATH=/lusr/mpich/bin:$PATH
