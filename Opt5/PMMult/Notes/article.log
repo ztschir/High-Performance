@@ -1,0 +1,320 @@
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2012.10.5)  16 APR 2013 11:41
+entering extended mode
+ %&-line parsing enabled.
+**article.tex
+(./article.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
+omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
+sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/ltxmisc/framed.sty
+Package: framed 2007/10/04 v 0.95: framed or shaded text with page breaks
+\fb@frw=\dimen103
+\fb@frh=\dimen104
+\FrameRule=\dimen105
+\FrameSep=\dimen106
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen107
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/v/filer4b/software/texlive/2008/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen108
+\Gin@req@width=\dimen109
+)
+\epsfxsize=\dimen110
+\epsfysize=\dimen111
+) (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/ltxmisc/ulem.sty
+\UL@box=\box26
+\UL@hyphenbox=\box27
+\UL@skip=\skip43
+\UL@hook=\toks16
+\UL@pe=\count88
+\UL@pixel=\dimen112
+\ULC@box=\box28
+Package: ulem 2000/05/26
+\ULdepth=\dimen113
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks17
+\thm@bodyfont=\toks18
+\thm@headfont=\toks19
+\thm@notefont=\toks20
+\thm@headpunct=\toks21
+\thm@preskip=\skip44
+\thm@postskip=\skip45
+\thm@headsep=\skip46
+\dth@everypar=\toks22
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/program/program.sty
+\@gtempa=\dimen114
+\@gtempa=\dimen115
+\@gtempa=\dimen116
+\@gtempa=\dimen117
+\@gtempa=\dimen118
+\@gtempa=\dimen119
+\@gtempa=\dimen120
+\@gtempa=\dimen121
+\@gtempa=\dimen122
+\@gtempa=\dimen123
+\@gtempa=\dimen124
+\@gtempa=\dimen125
+\@gtempa=\dimen126
+\@gtempa=\dimen127
+\@gtempa=\dimen128
+\@gtempa=\dimen129
+\@gtempa=\dimen130
+\@gtempa=\dimen131
+\@gtempa=\dimen132
+\@gtempa=\dimen133
+\@gtempa=\dimen134
+\@gtempa=\dimen135
+\@gtempa=\dimen136
+\@gtempa=\dimen137
+\@gtempa=\dimen138
+\@gtempa=\dimen139
+\@gtempa=\dimen140
+\@gtempa=\dimen141
+\@gtempa=\dimen142
+\@gtempa=\dimen143
+\@gtempa=\dimen144
+\@gtempa=\dimen145
+\@gtempa=\dimen146
+\@gtempa=\dimen147
+\@gtempa=\dimen148
+\@gtempa=\dimen149
+\@gtempa=\dimen150
+\@gtempa=\dimen151
+\@gtempa=\dimen152
+\@gtempa=\dimen153
+\@gtempa=\dimen154
+\@gtempa=\dimen155
+\@gtempa=\dimen156
+\@gtempa=\dimen157
+\@gtempa=\dimen158
+\@gtempa=\dimen159
+\@gtempa=\dimen160
+\@gtempa=\dimen161
+\@gtempa=\dimen162
+\@gtempa=\dimen163
+\c@programline=\count89
+\old@nxttabmar=\count90
+\symeulerletters=\mathgroup6
+\powersetbox=\box29
+LaTeX Font Info:    Try loading font information for U+msa on input line 839.
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 839.
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+eur on input line 839.
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/ueur.fd
+File: ueur.fd 2002/01/19 v2.2g AMS font definitions
+))
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/v/filer4b/software/texlive/2008/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/ltxmisc/boxedminipage.st
+y) (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count91
+\FV@InFile=\read1
+\FV@TabBox=\box30
+\c@FancyVerbLine=\count92
+\FV@StepNumber=\count93
+\FV@OutFile=\write3
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/titlesec/titletoc.sty
+Package: titletoc 2007/08/12 v1.6 TOC entries
+\ttl@leftsep=\dimen164
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/tools/array.sty
+Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
+\col@sep=\dimen165
+\extrarowheight=\dimen166
+\NC@list=\toks23
+\extratabsurround=\skip47
+\backup@length=\skip48
+)
+\everycr=\toks24
+\minrowclearance=\skip49
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks25
+\SOUL@lasttoken=\toks26
+\SOUL@cmds=\toks27
+\SOUL@buffer=\toks28
+\SOUL@token=\toks29
+\SOUL@spaceskip=\skip50
+\SOUL@ttwidth=\dimen167
+\SOUL@uldp=\dimen168
+\SOUL@ulht=\dimen169
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/moreverb/moreverb.sty
+Package: moreverb 2008/06/03 v2.3 `more' verbatim facilities
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks30
+\verbatim@line=\toks31
+\verbatim@in@stream=\read2
+)
+\verbatim@out=\write4
+\tab@position=\count94
+\tab@size=\count95
+\listing@line=\count96
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/rotating/rotating.sty
+Package: rotating 2008/10/05 v2.15c rotated objects in LaTeX
+\c@r@tfl@t=\count97
+\rotFPtop=\skip51
+\rotFPbot=\skip52
+\rot@float@box=\box31
+\rot@mess@toks=\toks32
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks33
+)
+(./article.aux)
+\openout1 = `article.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count98
+\scratchdimen=\dimen170
+\scratchbox=\box32
+\nofMPsegments=\count99
+\nofMParguments=\count100
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count101
+\MPscratchDim=\dimen171
+\MPnumerator=\count102
+\everyMPtoPDFconversion=\toks35
+) (./distr_fig_abc.tex) [1
+
+{/v/filer4b/software/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+] [2] [3] [4] [5] (./article.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2896 strings out of 493876
+ 36926 string characters out of 1147346
+ 147992 words of memory out of 3000000
+ 6117 multiletter control sequences out of 10000+50000
+ 15496 words of font info for 61 fonts, out of 3000000 for 5000
+ 714 hyphenation exceptions out of 8191
+ 34i,12n,24p,353b,263s stack positions out of 5000i,500n,10000p,200000b,50000s
+</v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmbx10.pf
+b></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmbx12.pf
+b></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmex10.pf
+b></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi10.pf
+b></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi5.pfb
+></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi7.pfb>
+</v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb><
+/v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmr12.pfb></
+v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmr17.pfb></v
+/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmr5.pfb></v/f
+iler4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmr7.pfb></v/fil
+er4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy10.pfb></v/fil
+er4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy7.pfb></v/file
+r4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></v/file
+r4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmtt12.pfb>
+Output written on article.pdf (5 pages, 95032 bytes).
+PDF statistics:
+ 78 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

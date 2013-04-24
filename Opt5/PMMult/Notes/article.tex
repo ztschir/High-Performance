@@ -1,0 +1,373 @@
+\documentclass[10pt]{article}
+
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\topmargin}{-0.75in}
+
+\usepackage{framed}
+\usepackage{multirow}
+
+
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage[normalem]{ulem}
+
+\usepackage{amsthm}
+\usepackage{program}
+
+
+\usepackage{ifthen}
+\usepackage{color}
+\usepackage{boxedminipage}
+\usepackage{fancyvrb}
+
+\usepackage[dotinlabels]{titletoc}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{moreverb}
+\usepackage{rotating}
+\usepackage{enumerate}
+\usepackage{rotating}
+
+\newcommand{\striu}{{\rm striu}}
+\newcommand{\half}{\frac{1}{2}}
+
+
+\newcommand{\hous}{{\rm Hous}}
+
+\newcommand{\stack}[2]{
+\mathord{
+  \raise 1.2ex\hbox to 0pt 
+          {$\scriptstyle#2$\hss}
+  #1}}
+
+\newcommand{\rowv}[1]{
+\stack{#1}{\rightarrow}
+}
+
+\newcommand{\rowdv}[1]{
+\stack{#1}{=}
+}
+
+\newcommand{\colv}[1]{
+\mathord{
+  \raise 1.8ex\hbox to 0pt 
+          {$\scriptstyle \downarrow$\hss}
+  #1}}
+
+
+\newcommand{\coldv}[1]{
+\stack{#1}{\|}
+}
+
+\newcommand{\local}[1]{
+\mbox{\rm loc}( #1 )
+}
+%\newcommand{\mod}{\bmod} 
+\newcommand{\Akk}{ A_{kk} }
+\newcommand{\Ajk}{ A_{jk} }
+\newcommand{\Ajj}{ A_{jj} }
+\newcommand{\Aki}{ A_{ki} }
+\newcommand{\Aji}{ A_{ji} }
+\newcommand{\Aij}{ A_{ij} }
+\newcommand{\Aik}{ A_{ik} }
+\newcommand{\Akj}{ A_{kj} }
+
+\newcommand{\tenidx}[9]{ (#1\!:\!#2\!:\!#3,#4\!:\!#5\!:\!#6,#7\!:\!#8\!:\!#9) }
+\newcommand{\matidx}[6]{ (#1\!:\!#2\!:\!#3,#4\!:\!#5\!:\!#6) }
+\newcommand{\vecidx}[3]{ (#1\!:\!#2\!:\!#3) }
+
+%\newcommand{\vecrow}{\mathcal{V}^{1\triangleleft 0}}
+%\newcommand{\veccol}{\mathcal{V}^{0\triangleleft 1}}
+%\newcommand{\matcol}{\mathcal{M}^0}
+%\newcommand{\matrow}{\mathcal{M}^1}
+\newcommand{\vecrow}{\ensuremath{V_R}}
+\newcommand{\veccol}{\ensuremath{V_C}}
+\newcommand{\matcol}{\ensuremath{M_C}}
+\newcommand{\matrow}{\ensuremath{M_R}}
+
+\newcommand{\rzero}{r}
+\newcommand{\rone}{c}
+
+\newcommand{\szero}{s}
+\newcommand{\sone}{t}
+
+\newcommand{\Mzero}{\ensuremath{M_C}}
+\newcommand{\Mone}{\ensuremath{M_R}}
+
+\newcommand{\Dist}[3]{\mathcal{D}^{#1\triangleleft #2\triangleleft #3}}
+
+\newcommand{\all}{\mathbb{*}}
+% \renewcommand{\all}{\N}
+
+%%% 
+%%% \newcommand{\pOO}{ p^{(0,0)} }
+%%% \newcommand{\plO}{ p^{(1,0)} }
+%%% \newcommand{\pll}{ p^{(1,1)} }
+%%% \newcommand{\pij}{ p^{(i,j)} }
+%%% \newcommand{\pii}{ p^{(i,i)} }
+%%% \newcommand{\pjj}{ p^{(j,j)} }
+%%% 
+%%% \newcommand{\LOO}{ L^{(0,0)}{} }
+%%% \newcommand{\LlO}{ L^{(1,0)}{} }
+\newcommand{\Lij}{ L_{ij}{} }
+\newcommand{\Ljk}{ L_{jk}{} }
+\newcommand{\Ljj}{ L_{jj}{} }
+\newcommand{\Lik}{ L_{ik}{} }
+%%% \newcommand{\LUOO}{ \{ L \backslash U \}^{(0,0)}{} }
+%%% \newcommand{\LUll}{ \{ L \backslash U \}^{(1,1)}{} }
+\newcommand{\LUjj}{ \{ L \backslash U \}^{jj}{} }
+%%% \newcommand{\barLOO}{ \bar{L}^{(0,0)}{} }
+%%% 
+%%% \newcommand{\UOO}{ U^{(0,0)}{} }
+\newcommand{\Ukk}{ U^{kk}{} }
+%%% \newcommand{\barUOO}{ \bar{U}^{(0,0)}{} }
+%%% \newcommand{\barLUOO}{ \{ \bar{L} \backslash \bar{U} \}^{(0,0)}{} }
+
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%\newcommand{\AOO}{ \hat{A}_{00} }
+%%%%\newcommand{\AOl}{ \hat{A}_{01} }
+%%%%\newcommand{\AlO}{ \hat{A}_{10} }
+%%%%\newcommand{\All}{ \hat{A}_{11} }
+\newcommand{\AOO}{ B }
+%%%%\newcommand{\barAOO}{ \bar{B} }
+\newcommand{\AOl}{ C }
+%%%%\newcommand{\barAOl}{ \bar{C} }
+%%%%\newcommand{\barbarAOl}{ \bar{\bar{C}} }
+\newcommand{\AlO}{ D }
+%%%%\newcommand{\barAlO}{ \bar{D} }
+\newcommand{\All}{ E }
+%%%%\newcommand{\barAll}{ \bar{E} }
+%%%%\newcommand{\barbarAll}{ \bar{\bar{E}} }
+
+\newcommand{\FS}{\mbox{\sc FS}}
+
+\newcommand{\unb}{\mbox{\sc \scriptsize unb}}
+\newcommand{\blk}{\mbox{\sc \scriptsize blk}}
+
+\newcommand{\lap}{\mbox{\sc \scriptsize lap}}
+\newcommand{\lin}{\mbox{\sc \scriptsize lin}}
+
+\newcommand{\LUunb}{ \LU_{\unb}}
+\newcommand{\LUblk}{ \LU_{\blk}}
+
+\newcommand{\LUlinunb}{ \LU^{\lin}_{\unb}}
+\newcommand{\LUlapunb}{ \LU^{\lap}_{\unb}}
+\newcommand{\LUlinblk}{ \LU^{\lin}_{\blk}}
+\newcommand{\LUlapblk}{ \LU^{\lap}_{\blk}}
+
+\newcommand{\sa}{\mbox{\sc \scriptsize sa}}
+
+\newcommand{\LUsablk}{ \LU^{\sa}_{\blk}}
+\newcommand{\LUsalinblk}{ \LU^{\sa-\lin}_{\blk}}
+\newcommand{\LUsalapblk}{ \LU^{\sa-\lap}_{\blk}}
+
+\newcommand{\FSsalinblk}{ \FS^{\sa-\lin}_{\blk}}
+\newcommand{\FSlin}{ \FS^{\lin}}
+\newcommand{\FSlap}{ \FS^{\lap}}
+
+\newcommand{\OOCone}{\mbox{\sc \scriptsize OOC-1}}
+\newcommand{\OOCtwo}{\mbox{\sc \scriptsize OOC-2}}
+\newcommand{\OOCthree}{\mbox{\sc \scriptsize OOC-3}}
+\newcommand{\OOCfour}{\mbox{\sc \scriptsize OOC-4}}
+
+\title{Notes on Parallelizing Matrix-Matrix Multiplication}
+\author{Robert van de Geijn, Martin Schatz, Tze Meng Low}
+
+\begin{document}
+
+\maketitle
+
+\section{A simple implementation}
+
+In this assigment, you start with a very simple parallel matrix-matrix 
+multiplication that implements $ C = A B + C $ as a sequence of rank-k updates:
+\[
+C = \left( 
+\begin{array}{c | c | c | c}
+a_0 & a_1 & \ldots & a_{k-1}
+\end{array}
+\right) 
+\left(
+\begin{array}{c}
+\hat{b}^T_0 \\
+\hat{b}^T_1 \\
+\vdots \\
+\hat{b}^T_{k-1}
+\end{array}
+\right) 
+=
+(  (\cdots  ( ( C + a_0 \hat{b}^T_0  ) + a_1 \hat{b}^T_1 )  + \cdots ) + a_{k-1} \hat{b}^T_{k-1} )
+\]
+
+\subsection{Distribution}
+
+Consider Figure~\ref{fig:distrC}--\ref{fig:distrB}, 
+which illustrate how matrices $ C $, $ A $, and $ B $ are distributed to a $ r \times c $ mesh of (MPI) processes, when $ r = c = 3 $.
+They are distributed using an elemental cyclic distribution.
+            
+\input distr_fig_abc
+
+\subsection{Routine {\tt ParallelRank1}}
+
+Since the matrix multiplication can be accomplished as a loop around
+rank-1 updates, I created a routine {\tt ParallelRank1} that
+implements a rank-1 update with the $ p$th column $ A $ multiplying
+the $ p $th row of $ B$, updating $ C $.
+
+Notice that this routine communicates the $ p $th column of $ A $ within
+rows of nodes and the $ p $th row of $ B $ within columns of nodes to
+achieve the duplication of data illustrated in
+Figure~\ref{fig:distrA}.  The duplicated data are in the work arrays {\tt
+work\_A} and {\tt work\_B}, respectively, and the local computation is
+then performed by the call to the BLAS routine {\tt dger\_}, which
+performs a rank-1 update.  Notice that {\tt dger\_} uses a Fortran
+interface, meaning that data must be passed by address, which explains
+some of the ugliness...
+
+\subsection{Routine {\tt ParallelMMult}}
+
+The routine {\tt ParallelMMult} in file {\tt ParallelMMult\_1.c} simply
+implements the parallel matrix-matrix multiplication as a loop around
+calls to {\tt ParallelRank1}.
+
+\subsection{The driver routine}
+
+The driver routine sets up the MPI environment, creates random
+matrices, copies (via the utility routine {\tt
+  CopyMatrixGlobalToLocal}) the local part of those random matrices into the
+local arrays used for the parallel matrix-matrix multiplication, etc.
+It uses utility routines to create a random matrix and to compare the
+contents of two matrices.
+
+\subsection{Executing}
+
+Copy {\tt \~rvdg/class/CS378S13/PMMult} into a directory of your own.  
+Executing {\tt make run} will compile and test (with a $ 2 \times 3 $
+mesh of processes).  The reported {\tt diff} should be small.
+
+\subsection{Comment}
+When we run this on a real machine (next week), you will see that this
+implementation is (weakly) scalable, but achieves very low
+performance.
+
+\section{Optimization 1}
+
+The key is to locally call a matrix-matrix multiply rather than a
+rank-1 update.  For this, observe that
+\[
+C = \left( 
+\begin{array}{c | c | c | c}
+A_0 & A_1 & \ldots & A_{K-1}
+\end{array}
+\right) 
+\left(
+\begin{array}{c}
+B_0 \\
+B_1 \\
+\vdots \\
+B_{K-1}
+\end{array}
+\right) 
+=
+(  (\cdots  ( ( C + A_0 B_0  ) + A_1 B_1 )  + \cdots ) + A_{K-1} B_{K-1} )
+\]
+
+Now, I will describe how to morph {\tt ParallelRank1} into {\tt
+  ParallelRankK}, which will implement 
+$ C = C + A_k B_k $, where $ A_k $ has $ b_k $ columns and $ B_k $ has
+$ b_k $ rows.
+
+\subsection{Calling sequence}
+
+Please make the calling sequence for this new routine
+\begin{verbatim}
+void ParallelRankK( 
+		   // global matrix dimensions m, n, k
+		   int global_m, int global_n, int global_k,  
+		   // the global index of the current columns of A and current rows of B 
+		   // to be used for the rank-b_k update
+		   int p, 
+                   // the block size for this rank-k update 
+		   int bk, 
+		   // address of where local A, B, and C are stored, as well as their 
+		   // local "leading dimensions"
+		   double *local_A, int local_ldimA, 
+		   double *local_B, int local_ldimB, 
+		   double *local_C, int local_ldimC,
+		   // communicator for the row in which this node is a member
+		   MPI_Comm comm_row, 
+		   // communicator for the column in which this node is a member
+		   MPI_Comm comm_col )
+\end{verbatim}
+(Notice the new parameter {\tt bk}.)
+
+{\bf Store this first implementation in file {\tt ParallelRankK\_2.c}.}
+
+\subsection{From {\tt ParallelRank1} to {\tt ParallelRankK\_2}}
+
+
+\paragraph*{Work arrays}
+ First, you will want to make it so that {\tt work\_A} can hold $ b_k $
+columns and {\tt work\_B} can hold $ b_k $ columns.  Hint:  take rows
+of $ B $ but store them as columns of {\tt work\_B}!!!  This will make
+your life easier.
+
+\paragraph*{Communication}
+In your first implementation, perform separate
+broadcasts to communicate each of the $ b_k $ columns of $ A$ and $
+b_k $ rows of $ B $ by putting a loop around the broadcasts in {\tt
+  ParallelRank1}.
+
+\paragraph*{Local computation}
+
+Also, put a loop around the rank-1 updates (calls to {\tt dger\_}).
+
+\subsection{From {\tt ParallelMMult\_1} to {\tt ParallelMMult\_2}}
+
+Copy {\tt ParallelMMult\_1.c} into {\tt ParallelMMult\_2.c} (but don't
+change the name or calling sequence).  
+Change the routine to call {\tt ParallelRankK}.  You will have to
+change the loop to increment in steps of {\tt bk}.  How do you deal
+with the fact that in the last iteration you may not have a full set
+of {\tt bk} columns in $ A $ (or rows in $ B $)?
+
+Change the {\tt Makefile} and see if you get the right answer.
+
+
+\section{Optimization 2}
+
+\subsection{From {\tt ParallelRankK\_2} to {\tt ParallelRankK\_3}}
+
+Copy from one file to a new file.
+
+\paragraph*{Local computation}
+ 
+Replace the loop with calls to {\tt dger\_} with a single call to the
+matrix-matrix multiplication routine {\tt dgemm\_}.  (An example 
+of how to call this is in the driver.  Remember: {\tt work\_B} hold
+the transpose of the rows of $ B $ with which you are computing!)
+ 
+Change the {\tt Makefile} and see if you get the right answer.
+
+\section{Optimization 3}
+
+\subsection{From {\tt ParallelRankK\_3} to {\tt ParallelRankK\_4}}
+
+Copy from one file to a new file.
+
+\paragraph*{Communication}
+ 
+Replace the loop with calls to {\tt MPI\_Bcast} with a single call to 
+an appropriate collective communication.  What else do you need to do?
+ 
+Change the {\tt Makefile} and see if you get the right answer.
+
+\end{document}
+
