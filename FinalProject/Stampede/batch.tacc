@@ -1,0 +1,19 @@
+#!/bin/bash        
+
+#----------------------------------------------------
+# Generic SLURM script -- MPI
+#----------------------------------------------------
+
+#SBATCH -J sdmttl_MMult         # Job name
+#SBATCH -o sdmttl_MMult.%j.out  # stdout; %j expands to jobid
+#SBATCH -p development        # queue
+#SBATCH -N 1                  # Number of nodes, not cores (16 cores/node)
+#SBATCH -n 16                 # Total number of MPI tasks (if omitted, n=N)
+#SBATCH -t 00:15:00           # max time  (30 minutes)
+
+#SBATCH --mail-user=sidmitt@yahoo.com
+#SBATCH --mail-type=ALL
+
+#SBATCH -A CS378HPC           # necessary if you have multiple project accounts
+module list
+ibrun ./mmmult.x              # Use ibrun for MPI codes. Don’t use mpirun or srun.

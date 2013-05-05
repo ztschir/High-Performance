@@ -1,0 +1,98 @@
+% Plot Script
+clear all; clc;
+
+
+MaxGFPerCore = 21.6;
+
+PMult_Time_16 = [0.145211 0.194283 2.815457 7.182469 13.57071 22.91684 ...
+                 36.33303 53.68882 75.62964 103.5459 138.1081 179.6865 ...
+                 228.5009 251.5543 275.9483 293.8208];
+PMult_Time_32 = [0.147469 0.115772 0.578608 3.251636 6.860014 11.907820...
+                 18.606850 27.610740 39.464800 53.469290 70.617950 ...
+                 91.236290 116.631700 144.562300 177.457400 189.623500];
+PMult_Time_64 = [0.1641202 0.102427 0.240726 0.53549 2.8348 5.982061 ...
+                 9.75391 14.405 20.3415 27.85509 36.63839 46.8045 ...
+                 59.26476 73.13831 89.58405 109.0673];
+PMult_Time_128 = [0.192625 0.101398 0.1997819 0.344095 0.566921 1.401186 ...
+                  3.932796 6.910433 10.59921 14.42232 19.49018 24.47778 ...
+                  30.88092 38.62884 47.16028 56.89983];
+PMult_Time_256 = [0.2047679 0.166101 0.2150199 0.339704 0.4750252 ...
+                  0.783052 1.383349 1.401442 3.148353 6.124142 9.247835 ...
+                  12.96088 16.17679 20.65669 26.35127 30.58707];
+
+              
+PMult_GFPerCore_16 = [0.8608164 5.147131 1.19874 1.113823 1.151377 ...
+                      1.178173 1.180056 1.192055 1.204885 1.207195 ...
+                      1.204673 1.202093 1.201855 1.202743 1.202 1.201746];
+PMult_GFPerCore_32 = [0.423818 4.318833 2.916482 1.230150 1.138846 ...
+                      1.133709 1.152130 1.158969 1.154510 1.168895 ...
+                      1.177994 1.183739 1.177317 1.186340 1.188665 1.191415];
+PMult_GFPerCore_64 = [0.1904092 2.440763 3.505022 3.734897 1.377963 ...
+                      1.128374 1.098918 1.110725 1.119939 1.121877 ...
+                      1.13525 1.153735 1.158467 1.172436 1.177316 1.173588];
+PMult_GFPerCore_128 = [0.08111614 1.232766 2.111678 2.906174 3.445145 ...
+                       2.408674 1.362739 1.15767 1.074667 1.083391 ...
+                       1.067044 1.103041 1.111629 1.109922 1.118195 1.124784];
+PMult_GFPerCore_256 = [0.03815294 0.3762771 0.9810137 1.471869 2.055812 ...
+                       2.155029 1.937102 2.854203 1.808981 1.275689 ...
+                       1.124419 1.041596 1.06103 1.037799 1.000604 1.046194];
+                   
+                   
+% Scalability
+problemSize = 1000:1000:16000;
+figure(1);
+hold on;
+title('Scalability');
+plot(problemSize, PMult_Time_16, 'Color', 'Red');
+plot(problemSize, PMult_Time_32, 'Color', 'Blue');
+plot(problemSize, PMult_Time_64, 'Color', 'Green');
+plot(problemSize, PMult_Time_128, 'Color', 'Black');
+plot(problemSize, PMult_Time_256, 'Color', 'Yellow');
+xlabel('Problem Size');
+ylabel('Speedup (seconds)');
+legend('16 cores', '32 cores', '64 cores', '128 cores', '256 cores');
+hold off;
+
+
+% Strong Scaling
+
+numberOfCores = [16 32 64 128 256];
+GFPerCoreMatrix = vertcat(PMult_GFPerCore_16,...
+                          PMult_GFPerCore_32,...
+                          PMult_GFPerCore_64,...
+                          PMult_GFPerCore_128,...
+                          PMult_GFPerCore_256);
+figure(2);
+hold on;
+title('Strong Scalability');
+
+plot(numberOfCores, GFPerCoreMatrix(:,2), 'Color', 'Red');
+plot(numberOfCores, GFPerCoreMatrix(:,4), 'Color', 'Blue');
+plot(numberOfCores, GFPerCoreMatrix(:,6), 'Color', 'Green');
+plot(numberOfCores, GFPerCoreMatrix(:,8), 'Color', 'Black');
+plot(numberOfCores, GFPerCoreMatrix(:,10), 'Color', 'Yellow');
+xlabel('Number of Cores');
+ylabel('GFLOPS/core');
+legend('n = 2000', 'n = 4000', 'n = 6000', 'n = 8000', 'n = 10000');
+axis([min(numberOfCores) max(numberOfCores) 0 MaxGFPerCore]);
+hold off;
+
+% Weak Scaling
+
+numberOfCores = [16 64 256];
+Curve1 = [GFPerCoreMatrix(1,2), GFPerCoreMatrix(3,4), GFPerCoreMatrix(5,8)];
+Curve2 = [GFPerCoreMatrix(1,3), GFPerCoreMatrix(3,6), GFPerCoreMatrix(5,12)];
+Curve3 = [GFPerCoreMatrix(1,4), GFPerCoreMatrix(3,8), GFPerCoreMatrix(5,16)];
+figure(3);
+hold on;
+title('Weak Scalability');
+
+plot(numberOfCores, Curve1, 'Color', 'Red');
+plot(numberOfCores, Curve2, 'Color', 'Blue');
+plot(numberOfCores, Curve3, 'Color', 'Green');
+
+xlabel('Number of Cores');
+ylabel('GFLOPS/core');
+legend('Curve 1', 'Curve 2', 'Curve 3');
+axis([min(numberOfCores) max(numberOfCores) 0 MaxGFPerCore]);
+hold off;
